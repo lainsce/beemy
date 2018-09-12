@@ -20,7 +20,12 @@
     <url type="bugtracker">https://github.com/lainsce/beemy/issues</url>
     <screenshots>
         <screenshot type="default">
+            <caption>Home Page</caption>
             <image>https://raw.githubusercontent.com/lainsce/beemy/master/data/shot.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Results Page</caption>
+            <image>https://raw.githubusercontent.com/lainsce/quilter/master/data/shot-results.png</image>
         </screenshot>
     </screenshots>
     <content_rating type="oars-1.1">

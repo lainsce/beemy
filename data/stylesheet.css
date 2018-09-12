@@ -13,15 +13,6 @@
     color: @textColorPrimary;
 }
 
-combobox > box > button {
-    background: @colorPrimary;
-    color: @textColorPrimary;
-}
-
-cellview {
-    color: @textColorPrimary;
-}
-
 .color-button {
     border-radius: 50%;
     background-image: none;
@@ -46,17 +37,17 @@ cellview {
 }
 
 .overweight-label {
-    color: @STRAWBERRY_500;
+    color: @STRAWBERRY_700;
 }
 
 .obese-label {
-    color: @BANANA_500;
+    color: @BANANA_700;
 }
 
 .healthy-label {
-    color: @LIME_500;
+    color: @LIME_700;
 }
 
 .underweight-label {
-    color: @GRAPE_500;
+    color: @GRAPE_700;
 }

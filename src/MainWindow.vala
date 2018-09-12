@@ -33,15 +33,15 @@ namespace Beemy {
         public Gtk.Label label_result;
         public Gtk.Label label_result_info;
         public Gtk.Label label_result_grade;
-        public string grade_type;
-        public string bmi_result;
+        public Gtk.Label label_result_grade_number;
         public Gtk.Button return_button;
 
         public Gtk.Stack stack;
 
-        public double res = 0.0;
-        public double weight_entry_text = 0.0;
-        public double height_entry_text = 0.0;
+        public string grade_type = "None";
+        public double res = 0.00;
+        public double weight_entry_text = 0.00;
+        public double height_entry_text = 0.00;
 
         public MainWindow (Gtk.Application application) {
             GLib.Object (application: application,
@@ -106,10 +106,10 @@ namespace Beemy {
             entry_weight.has_focus = false;
             entry_weight.margin_top = 5;
             entry_weight.margin_bottom = 5;
-            entry_weight.set_text ("Enter weight…");
+            entry_weight.placeholder_text = "Enter weight…";
 
-            entry_weight.activate.connect (() => {
-                weight_entry_text = double.parse(entry_weight_buffer.get_text ());
+            entry_weight_buffer.inserted_text.connect (() => {
+                weight_entry_text = double.parse(entry_weight.get_text ());
             });
 
             entry_height_buffer = new Gtk.EntryBuffer ();
@@ -119,10 +119,10 @@ namespace Beemy {
             entry_height.has_focus = false;
             entry_height.margin_top = 5;
             entry_height.margin_bottom = 5;
-            entry_height.set_text ("Enter height…");
+            entry_height.placeholder_text = "Enter height…";
 
-            entry_height.activate.connect (() => {
-                height_entry_text = double.parse(entry_height_buffer.get_text ());
+            entry_height_buffer.inserted_text.connect (() => {
+                height_entry_text = double.parse(entry_height.get_text ());
             });
 
             base_weight_cb = new Gtk.ComboBoxText();
@@ -157,22 +157,14 @@ namespace Beemy {
                 height_cb_text = "m";
             }
 
-            base_weight_cb.changed.connect (() => {
-
-            });
-
-            base_height_cb.changed.connect (() => {
-
-            });
-
             var weight_help = new Gtk.Image.from_icon_name ("help-info-symbolic", Gtk.IconSize.BUTTON);
-			weight_help.halign = Gtk.Align.START;
-			weight_help.hexpand = true;
+            weight_help.halign = Gtk.Align.START;
+            weight_help.hexpand = true;
             weight_help.tooltip_text = _("You can choose your preferred weight unit.");
 
             var height_help = new Gtk.Image.from_icon_name ("help-info-symbolic", Gtk.IconSize.BUTTON);
-			height_help.halign = Gtk.Align.START;
-			height_help.hexpand = true;
+            height_help.halign = Gtk.Align.START;
+            height_help.hexpand = true;
             height_help.tooltip_text = _("You can choose your preferred height unit.");
 
             var color_button_action = new Gtk.Button ();
@@ -207,7 +199,6 @@ namespace Beemy {
             // RESULT PAGE
             //
             //
-
             label_result = new Gtk.Label ("Your Results:");
             label_result.set_halign (Gtk.Align.START);
             label_result.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
@@ -216,14 +207,22 @@ namespace Beemy {
 
             label_result_info = new Gtk.Label ("");
             label_result_info.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
-            label_result_info.set_halign (Gtk.Align.START);
+            label_result_info.set_halign (Gtk.Align.CENTER);
             label_result_info.hexpand = true;
             label_result_info.margin_bottom = 6;
 
             label_result_grade = new Gtk.Label ("");
-            label_result_grade.set_halign (Gtk.Align.START);
+            label_result_grade.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+            label_result_grade.set_halign (Gtk.Align.CENTER);
             label_result_grade.hexpand = true;
-            label_result_grade.margin_bottom = 6;
+
+            label_result_grade_number = new Gtk.Label ("");
+            label_result_grade_number.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
+            label_result_grade_number.set_halign (Gtk.Align.CENTER);
+            label_result_grade_number.hexpand = true;
+
+            body_mass_index_res ();
+            body_mass_index_grade ();
 
             var results_grid = new Gtk.Grid ();
             results_grid.margin_top = 0;
@@ -232,6 +231,7 @@ namespace Beemy {
             results_grid.attach (label_result, 0, 0, 3, 1);
             results_grid.attach (label_result_info, 0, 1, 3, 1);
             results_grid.attach (label_result_grade, 0, 2, 3, 1);
+            results_grid.attach (label_result_grade_number, 0, 3, 3, 1);
 
             stack = new Gtk.Stack ();
             stack.margin = 6;
@@ -244,8 +244,8 @@ namespace Beemy {
 
             return_button = new Gtk.Button.with_label ("Calculate");
             return_button.vexpand = false;
-            return_button.margin_top = 5;
-            return_button.margin_bottom = 5;
+            return_button.margin_top = 2;
+            return_button.margin_bottom = 2;
             return_button.get_style_context ().add_class ("back-button");
             show_return (false);
 
@@ -253,9 +253,6 @@ namespace Beemy {
                 stack.set_visible_child (home_grid);
                 show_return (false);
             });
-
-            body_mass_index_res ();
-            body_mass_index_grade ();
 
             color_button_action.clicked.connect (() => {
                 stack.set_visible_child (results_grid);
@@ -308,22 +305,53 @@ namespace Beemy {
         }
 
         public double body_mass_index_res () {
-            res = (height_entry_text * height_entry_text) / weight_entry_text;
-            label_result_grade.set_markup ("Your Body Mass Index is:\n %.2f".printf(res));
+            if (weight_cb_text == "kg") {
+                res = weight_entry_text / (height_entry_text * height_entry_text);
+            } else if (weight_cb_text == "lbs") {
+                res = ((weight_entry_text / (height_entry_text * height_entry_text)) / ((weight_entry_text * 2.2046) / ((height_entry_text * 3.2808) * (height_entry_text* 3.2808))));
+            }
+
+            var number_context = label_result_grade_number.get_style_context ();
+            if (res < 18.7) {
+                number_context.add_class ("underweight-label");
+                number_context.remove_class ("healthy-label");
+                number_context.remove_class ("obese-label");
+                number_context.remove_class ("overweight-label");
+            } else if (18.8 <= res <= 24.0) {
+                number_context.add_class ("healthy-label");
+                number_context.remove_class ("underweight-label");
+                number_context.remove_class ("obese-label");
+                number_context.remove_class ("overweight-label");
+            } else if (24.1 <= res <= 30.0) {
+                number_context.add_class ("obese-label");
+                number_context.remove_class ("underweight-label");
+                number_context.remove_class ("healthy-label");
+                number_context.remove_class ("overweight-label");
+            } else if (res > 30.1) {
+                number_context.add_class ("overweight-label");
+                number_context.remove_class ("healthy-label");
+                number_context.remove_class ("underweight-label");
+                number_context.remove_class ("obese-label");
+            }
+
+            label_result_grade.set_markup ("\nYour Body Mass Index is:\n");
+            label_result_grade_number.set_markup ("%.2f".printf(res));
             return res;
         }
 
         public string body_mass_index_grade () {
-            if (res < 24.0) {
+            if (res < 18.7) {
                 grade_type = "Underweight";
-            } else if (res == 24.0) {
+            } else if (18.7 < res <= 24.0) {
                 grade_type = "Healthy";
             } else if (24.0 < res < 30.0) {
                 grade_type = "Obese";
             } else if (res > 30.0) {
                 grade_type = "Overweight";
             }
-            label_result_info.set_markup ("You are %s".printf(grade_type));
+
+            label_result_info.set_markup ("""You are considered <span font="16">%s</span>
+in the official Body Mass Index chart.""".printf(grade_type));
 
             return grade_type;
         }
