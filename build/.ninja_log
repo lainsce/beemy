@@ -94,3 +94,9 @@
 686	1119	1536724233	com.github.lainsce.beemy@exe/meson-generated_src_MainWindow.c.o	de144de93931c4ed
 1119	1362	1536724234	com.github.lainsce.beemy	66da4eea20c0e480
 1362	2548	0	meson-install	6528d0a2fdebb049
+2	596	1536724304	com.github.lainsce.beemy@exe/src/Application.c	4ca92e7954d9985f
+2	596	1536724304	com.github.lainsce.beemy@exe/src/MainWindow.c	4ca92e7954d9985f
+2	596	1536724304	com.github.lainsce.beemy@exe/src/Constants/AppSettings.c	4ca92e7954d9985f
+596	1026	1536725162	com.github.lainsce.beemy@exe/meson-generated_src_MainWindow.c.o	de144de93931c4ed
+1026	1247	1536725162	com.github.lainsce.beemy	66da4eea20c0e480
+1248	2009	0	meson-install	6528d0a2fdebb049
