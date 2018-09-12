@@ -1,0 +1,62 @@
+@define-color colorPrimary #f5f5f5;
+@define-color appPrimary #c6262e;
+@define-color textColorPrimary #333333;
+
+.titlebar {
+    background-color: @colorPrimary;
+    border: none;
+    color: @textColorPrimary;
+}
+
+.beemy-toolbar {
+    background: @colorPrimary;
+    color: @textColorPrimary;
+}
+
+combobox > box > button {
+    background: @colorPrimary;
+    color: @textColorPrimary;
+}
+
+cellview {
+    color: @textColorPrimary;
+}
+
+.color-button {
+    border-radius: 50%;
+    background-image: none;
+    border: 1px solid alpha(@appPrimary, 0.3);
+    box-shadow:
+        inset 0 1px 0 0 alpha (@inset_dark_color, 0.7),
+        inset 0 0 0 1px alpha (@inset_dark_color, 0.3),
+        0 1px 0 0 alpha (@bg_highlight_color, 0.3);
+}
+
+.color-button:hover,
+.color_button:focus {
+    box-shadow:
+        inset 0 1px 0 0 alpha (@appPrimary, 0.7),
+        inset 0 0 0 1px alpha (@appPrimary, 0.3),
+        0 1px 0 0 alpha (@appPrimary, 0.3);
+}
+
+.color-button-action {
+    background-color: @appPrimary;
+    color: #FFF;
+}
+
+.overweight-label {
+    color: @STRAWBERRY_500;
+}
+
+.obese-label {
+    color: @BANANA_500;
+}
+
+.healthy-label {
+    color: @LIME_500;
+}
+
+.underweight-label {
+    color: @GRAPE_500;
+}

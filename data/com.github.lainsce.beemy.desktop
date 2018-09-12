@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Beemy
+Comment=A cute little Body Mass Index calculator
+Exec=com.github.lainsce.beemy
+Icon=com.github.lainsce.beemy
+Keywords=BMI;Body Mass;Health;Health Check;
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Education;Science;
