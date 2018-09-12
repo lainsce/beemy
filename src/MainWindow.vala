@@ -26,6 +26,8 @@ namespace Beemy {
         public Gtk.ComboBoxText base_height_cb;
         public string weight_cb_text;
         public string height_cb_text;
+        public Gtk.EntryBuffer entry_weight_buffer;
+        public Gtk.EntryBuffer entry_height_buffer;
 
         //results page widgets
         public Gtk.Label label_result;
@@ -97,7 +99,8 @@ namespace Beemy {
             label_beemy_info.hexpand = true;
             label_beemy_info.margin_bottom = 6;
 
-            var entry_weight = new Gtk.Entry ();
+            entry_weight_buffer = new Gtk.EntryBuffer ();
+            var entry_weight = new Gtk.Entry.with_buffer (entry_weight_buffer);
             entry_weight.vexpand = false;
             entry_weight.hexpand = true;
             entry_weight.has_focus = false;
@@ -106,10 +109,11 @@ namespace Beemy {
             entry_weight.set_text ("Enter weight…");
 
             entry_weight.activate.connect (() => {
-                weight_entry_text = double.parse(entry_weight.get_text ());
+                weight_entry_text = double.parse(entry_weight_buffer.get_text ());
             });
 
-            var entry_height = new Gtk.Entry ();
+            entry_height_buffer = new Gtk.EntryBuffer ();
+            var entry_height = new Gtk.Entry.with_buffer (entry_height_buffer);
             entry_height.vexpand = false;
             entry_height.hexpand = true;
             entry_height.has_focus = false;
@@ -118,7 +122,7 @@ namespace Beemy {
             entry_height.set_text ("Enter height…");
 
             entry_height.activate.connect (() => {
-                height_entry_text = double.parse(entry_height.get_text ());
+                height_entry_text = double.parse(entry_height_buffer.get_text ());
             });
 
             base_weight_cb = new Gtk.ComboBoxText();
@@ -210,18 +214,13 @@ namespace Beemy {
             label_result.hexpand = true;
             label_result.margin_bottom = 6;
 
-            body_mass_index_res ();
-            body_mass_index_grade ();
-
             label_result_info = new Gtk.Label ("");
-            label_result_info.set_markup ("You are %s".printf(grade_type));
             label_result_info.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
             label_result_info.set_halign (Gtk.Align.START);
             label_result_info.hexpand = true;
             label_result_info.margin_bottom = 6;
 
             label_result_grade = new Gtk.Label ("");
-            label_result_grade.set_markup ("Your Body Mass Index is:\n %.2f".printf(res));
             label_result_grade.set_halign (Gtk.Align.START);
             label_result_grade.hexpand = true;
             label_result_grade.margin_bottom = 6;
@@ -255,10 +254,15 @@ namespace Beemy {
                 show_return (false);
             });
 
+            body_mass_index_res ();
+            body_mass_index_grade ();
+
             color_button_action.clicked.connect (() => {
                 stack.set_visible_child (results_grid);
                 titlebar.pack_start (return_button);
                 show_return (true);
+                body_mass_index_res ();
+                body_mass_index_grade ();
             });
 
             this.add (stack);
@@ -305,6 +309,7 @@ namespace Beemy {
 
         public double body_mass_index_res () {
             res = (height_entry_text * height_entry_text) / weight_entry_text;
+            label_result_grade.set_markup ("Your Body Mass Index is:\n %.2f".printf(res));
             return res;
         }
 
@@ -318,6 +323,7 @@ namespace Beemy {
             } else if (res > 30.0) {
                 grade_type = "Overweight";
             }
+            label_result_info.set_markup ("You are %s".printf(grade_type));
 
             return grade_type;
         }
