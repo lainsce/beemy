@@ -1,3 +1,10 @@
+com.github.lainsce.beemy (1.0.1) xenial; urgency=low
+
+  * New icon.
+  * Fixes Imperial unit calculation.
+
+ -- Lains <lainsce@airmail.cc>  Fri, 21 Sep 2018 11:44:00 -0300
+
 com.github.lainsce.beemy (1.0.0) xenial; urgency=low
 
   * Initial Release.

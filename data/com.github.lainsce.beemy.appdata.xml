@@ -58,6 +58,15 @@
         <content_attribute id="money-gambling">none</content_attribute>
     </content_rating>
     <releases>
+        <release version="1.0.1" date="2018-09-21">
+            <description>
+                <p>Release: Keeps The Doc Away!</p>
+                <ul>
+                    <li>Fix calculation on Imperial Units</li>
+                    <li>New polished icon</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.0.0" date="2018-09-14">
             <description>
                 <p>Release: An Apple a Day...</p>

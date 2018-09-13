@@ -64,6 +64,11 @@ namespace Beemy {
             titlebar.has_subtitle = false;
             titlebar.show_close_button = true;
 
+            var titlebar_style_context = titlebar.get_style_context ();
+            titlebar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
+            titlebar_style_context.add_class ("default-decoration");
+            titlebar_style_context.add_class ("beemy-toolbar");
+
             var help_button = new Gtk.Button ();
             help_button.set_image (new Gtk.Image.from_icon_name ("help-contents-symbolic", Gtk.IconSize.SMALL_TOOLBAR));
             help_button.set_always_show_image (true);
@@ -75,12 +80,6 @@ namespace Beemy {
             });
 
             titlebar.pack_end (help_button);
-
-
-            var titlebar_style_context = titlebar.get_style_context ();
-            titlebar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
-            titlebar_style_context.add_class ("default-decoration");
-            titlebar_style_context.add_class ("beemy-toolbar");
 
             //
             //
@@ -224,6 +223,11 @@ namespace Beemy {
             body_mass_index_res ();
             body_mass_index_grade ();
 
+            var bmi_help = new Gtk.Image.from_icon_name ("help-info-symbolic", Gtk.IconSize.BUTTON);
+            bmi_help.halign = Gtk.Align.START;
+            bmi_help.hexpand = true;
+            bmi_help.tooltip_text = _("The Body Mass Index does not tell % of muscular mass or fat mass, all it does is a fast checkup on your health.");
+
             var results_grid = new Gtk.Grid ();
             results_grid.margin_top = 0;
             results_grid.column_spacing = 6;
@@ -232,6 +236,7 @@ namespace Beemy {
             results_grid.attach (label_result_info, 0, 1, 3, 1);
             results_grid.attach (label_result_grade, 0, 2, 3, 1);
             results_grid.attach (label_result_grade_number, 0, 3, 3, 1);
+            results_grid.attach (bmi_help, 2, 3, 3, 1);
 
             stack = new Gtk.Stack ();
             stack.margin = 6;
@@ -244,8 +249,7 @@ namespace Beemy {
 
             return_button = new Gtk.Button.with_label ("Calculate");
             return_button.vexpand = false;
-            return_button.margin_top = 2;
-            return_button.margin_bottom = 2;
+            return_button.valign = Gtk.Align.CENTER;
             return_button.get_style_context ().add_class ("back-button");
             show_return (false);
 
@@ -305,10 +309,10 @@ namespace Beemy {
         }
 
         public double body_mass_index_res () {
-            if (weight_cb_text == "kg") {
+            if (weight_cb_text == "kg" && height_cb_text == "m") {
                 res = weight_entry_text / (height_entry_text * height_entry_text);
-            } else if (weight_cb_text == "lbs") {
-                res = ((weight_entry_text / (height_entry_text * height_entry_text)) / ((weight_entry_text * 2.2046) / ((height_entry_text * 3.2808) * (height_entry_text* 3.2808))));
+            } else if (weight_cb_text == "lbs" && height_cb_text == "ft") {
+                res = (weight_entry_text / ((height_entry_text * 12) * (height_entry_text * 12))) * 703;
             }
 
             var number_context = label_result_grade_number.get_style_context ();
@@ -342,11 +346,11 @@ namespace Beemy {
         public string body_mass_index_grade () {
             if (res < 18.7) {
                 grade_type = "Underweight";
-            } else if (18.7 < res <= 24.0) {
+            } else if (18.8 <= res <= 24.0) {
                 grade_type = "Healthy";
-            } else if (24.0 < res < 30.0) {
+            } else if (24.1 <= res <= 30.0) {
                 grade_type = "Obese";
-            } else if (res > 30.0) {
+            } else if (res > 30.1) {
                 grade_type = "Overweight";
             }
 
