@@ -35,6 +35,7 @@ namespace Beemy {
         public Gtk.Label label_result_grade;
         public Gtk.Label label_result_grade_number;
         public Gtk.Button return_button;
+        public Gtk.Button color_button_action;
 
         public Gtk.Stack stack;
 
@@ -107,6 +108,21 @@ namespace Beemy {
             entry_weight.margin_bottom = 5;
             entry_weight.placeholder_text = "Enter weight…";
 
+            entry_weight.icon_press.connect ((pos, event) => {
+                if (pos == Gtk.EntryIconPosition.SECONDARY) {
+                    entry_weight.set_text ("");
+                }
+            });
+
+            entry_weight.changed.connect (() => {
+                if (entry_weight.text.length > 0) {
+                    entry_weight.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, "edit-clear-symbolic");
+                    sensive_color_button (true);
+                } else {
+                    entry_weight.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, null);
+                }
+            });
+
             entry_weight_buffer.inserted_text.connect (() => {
                 weight_entry_text = double.parse(entry_weight.get_text ());
             });
@@ -119,6 +135,21 @@ namespace Beemy {
             entry_height.margin_top = 5;
             entry_height.margin_bottom = 5;
             entry_height.placeholder_text = "Enter height…";
+
+            entry_height.icon_press.connect ((pos, event) => {
+                if (pos == Gtk.EntryIconPosition.SECONDARY) {
+                    entry_height.set_text ("");
+                }
+            });
+
+            entry_height.changed.connect (() => {
+                if (entry_height.text.length > 0) {
+                    entry_height.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, "edit-clear-symbolic");
+                    sensive_color_button (true);
+                } else {
+                    entry_height.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, null);
+                }
+            });
 
             entry_height_buffer.inserted_text.connect (() => {
                 height_entry_text = double.parse(entry_height.get_text ());
@@ -142,6 +173,7 @@ namespace Beemy {
 
             base_height_cb = new Gtk.ComboBoxText();
             base_height_cb.append_text("m");
+            base_height_cb.append_text("cm");
             base_height_cb.append_text("ft");
             base_height_cb.margin = 6;
 
@@ -150,6 +182,9 @@ namespace Beemy {
                 height_cb_text = "m";
             } else if (settings.height_type == 1) {
                 base_height_cb.set_active(1);
+                height_cb_text = "cm";
+            } else if (settings.height_type == 2) {
+                base_height_cb.set_active(2);
                 height_cb_text = "ft";
             } else {
                 base_height_cb.set_active(0);
@@ -166,7 +201,7 @@ namespace Beemy {
             height_help.hexpand = true;
             height_help.tooltip_text = _("You can choose your preferred height unit.");
 
-            var color_button_action = new Gtk.Button ();
+            color_button_action = new Gtk.Button ();
             color_button_action.has_focus = false;
             color_button_action.halign = Gtk.Align.CENTER;
             color_button_action.margin_top = 6;
@@ -178,6 +213,7 @@ namespace Beemy {
             var color_button_action_context = color_button_action.get_style_context ();
             color_button_action_context.add_class ("color-button");
             color_button_action_context.add_class ("color-button-action");
+            sensive_color_button (false);
 
             var home_grid = new Gtk.Grid ();
             home_grid.margin_top = 0;
@@ -308,11 +344,17 @@ namespace Beemy {
             return_button.set_visible (v);
         }
 
+        public void sensive_color_button (bool v) {
+            color_button_action.set_sensitive (v);
+        }
+
         public double body_mass_index_res () {
             if (weight_cb_text == "kg" && height_cb_text == "m") {
                 res = weight_entry_text / (height_entry_text * height_entry_text);
             } else if (weight_cb_text == "lbs" && height_cb_text == "ft") {
                 res = (weight_entry_text / ((height_entry_text * 12) * (height_entry_text * 12))) * 703;
+            } else if (weight_cb_text == "kg" && height_cb_text == "cm") {
+                res = weight_entry_text / ((height_entry_text / 100) * (height_entry_text / 100));
             }
 
             var number_context = label_result_grade_number.get_style_context ();

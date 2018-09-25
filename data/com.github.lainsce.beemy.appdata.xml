@@ -58,6 +58,15 @@
         <content_attribute id="money-gambling">none</content_attribute>
     </content_rating>
     <releases>
+        <release version="1.0.2" date="2018-09-30">
+            <description>
+                <p>Release: Be Balanced</p>
+                <ul>
+                    <li>Set the Calculate button's interactivity based if there's data or not</li>
+                    <li>Use Centimeters for height!</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.0.1" date="2018-09-21">
             <description>
                 <p>Release: Keeps The Doc Away!</p>

@@ -1,5 +1,12 @@
 com.github.lainsce.beemy (1.0.1) xenial; urgency=low
 
+  * Calculate Button sensitivity if there's data.
+  * Use centimeters now if chosen.
+
+ -- Lains <lainsce@airmail.cc>  Fri, 21 Sep 2018 11:44:00 -0300
+
+com.github.lainsce.beemy (1.0.1) xenial; urgency=low
+
   * New icon.
   * Fixes Imperial unit calculation.
 
