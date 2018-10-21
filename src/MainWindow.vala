@@ -24,8 +24,6 @@ namespace Beemy {
         public Gtk.Label label_beemy_info;
         public Gtk.ComboBoxText base_weight_cb;
         public Gtk.ComboBoxText base_height_cb;
-        public string weight_cb_text;
-        public string height_cb_text;
         public Gtk.EntryBuffer entry_weight_buffer;
         public Gtk.EntryBuffer entry_height_buffer;
 
@@ -43,6 +41,12 @@ namespace Beemy {
         public double res = 0.00;
         public double weight_entry_text = 0.00;
         public double height_entry_text = 0.00;
+
+        public double[] weight_conv = {1, 0.45359237};
+        public double[] height_conv = {1, 0.01, 0.3048};
+
+        public string[] weight_units = {"kg", "lbs"};
+        public string[] height_units = {"m", "cm", "ft"};
 
         public MainWindow (Gtk.Application application) {
             GLib.Object (application: application,
@@ -155,41 +159,18 @@ namespace Beemy {
                 height_entry_text = double.parse(entry_height.get_text ());
             });
 
-            base_weight_cb = new Gtk.ComboBoxText();
-            base_weight_cb.append_text(_("kg"));
-            base_weight_cb.append_text(_("lbs"));
-            base_weight_cb.margin = 6;
+            base_height_cb = createComboBox(height_units, 6);
+            base_weight_cb = createComboBox(weight_units, 6);
 
-            if (settings.weight_type == 0) {
-                base_weight_cb.set_active(0);
-                weight_cb_text = "kg";
-            } else if (settings.weight_type == 1) {
-                base_weight_cb.set_active(1);
-                weight_cb_text = "lbs";
-            } else {
-                base_weight_cb.set_active(0);
-                weight_cb_text = "kg";
-            }
+            // Check settings
+            if (settings.weight_type < 0 || settings.weight_type > 1)
+                settings.weight_type = 0;
+            if (settings.height_type < 0 || settings.height_type > 2)
+                settings.height_type = 0;
 
-            base_height_cb = new Gtk.ComboBoxText();
-            base_height_cb.append_text("m");
-            base_height_cb.append_text("cm");
-            base_height_cb.append_text("ft");
-            base_height_cb.margin = 6;
-
-            if (settings.height_type == 0) {
-                base_height_cb.set_active(0);
-                height_cb_text = "m";
-            } else if (settings.height_type == 1) {
-                base_height_cb.set_active(1);
-                height_cb_text = "cm";
-            } else if (settings.height_type == 2) {
-                base_height_cb.set_active(2);
-                height_cb_text = "ft";
-            } else {
-                base_height_cb.set_active(0);
-                height_cb_text = "m";
-            }
+            // Read settings
+            base_weight_cb.set_active(settings.weight_type);
+            base_height_cb.set_active(settings.height_type);
 
             var weight_help = new Gtk.Image.from_icon_name ("help-info-symbolic", Gtk.IconSize.BUTTON);
             weight_help.halign = Gtk.Align.START;
@@ -349,13 +330,10 @@ namespace Beemy {
         }
 
         public double body_mass_index_res () {
-            if (weight_cb_text == "kg" && height_cb_text == "m") {
-                res = weight_entry_text / (height_entry_text * height_entry_text);
-            } else if (weight_cb_text == "lbs" && height_cb_text == "ft") {
-                res = (weight_entry_text / ((height_entry_text * 12) * (height_entry_text * 12))) * 703;
-            } else if (weight_cb_text == "kg" && height_cb_text == "cm") {
-                res = weight_entry_text / ((height_entry_text / 100) * (height_entry_text / 100));
-            }
+            var weight = weight_entry_text * weight_conv[base_weight_cb.active];
+            var height = height_entry_text * height_conv[base_height_cb.active];
+
+            res = weight / (height * height);
 
             var number_context = label_result_grade_number.get_style_context ();
             if (res < 18.7) {
@@ -400,6 +378,14 @@ namespace Beemy {
 in the official Body Mass Index chart.""".printf(grade_type));
 
             return grade_type;
+        }
+
+        public Gtk.ComboBoxText createComboBox (string[] elements, int margin) {
+            var cb = new Gtk.ComboBoxText();
+            cb.margin = margin;
+            foreach (string e in elements)
+                cb.append_text(e);
+            return cb;
         }
     }
 }
