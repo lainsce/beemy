@@ -160,16 +160,39 @@ namespace Beemy {
             base_weight_cb.append_text(_("lbs"));
             base_weight_cb.margin = 6;
 
-            if (settings.weight_type == 0) {
-                base_weight_cb.set_active(0);
-                weight_cb_text = "kg";
-            } else if (settings.weight_type == 1) {
-                base_weight_cb.set_active(1);
-                weight_cb_text = "lbs";
-            } else {
-                base_weight_cb.set_active(0);
-                weight_cb_text = "kg";
+            var wt = settings.weight_type;
+
+            switch (wt) {
+                case 0:
+                    base_weight_cb.set_active(0);
+                    weight_cb_text = "kg";
+                    break;
+                case 1:
+                    base_weight_cb.set_active(1);
+                    weight_cb_text = "lbs";
+                    break;
+                default:
+                    base_weight_cb.set_active(0);
+                    weight_cb_text = "kg";
+                    break;
             }
+
+            base_weight_cb.changed.connect (() => {
+                switch (base_weight_cb.get_active ()) {
+                    case 0:
+                        settings.weight_type = 0;
+                        weight_cb_text = "kg";
+                        break;
+                    case 1:
+                        settings.weight_type = 1;
+                        weight_cb_text = "lbs";
+                        break;
+                    default:
+                        settings.weight_type = 0;
+                        weight_cb_text = "kg";
+                        break;
+                }
+            });
 
             base_height_cb = new Gtk.ComboBoxText();
             base_height_cb.append_text("m");
@@ -177,19 +200,47 @@ namespace Beemy {
             base_height_cb.append_text("ft");
             base_height_cb.margin = 6;
 
-            if (settings.height_type == 0) {
-                base_height_cb.set_active(0);
-                height_cb_text = "m";
-            } else if (settings.height_type == 1) {
-                base_height_cb.set_active(1);
-                height_cb_text = "cm";
-            } else if (settings.height_type == 2) {
-                base_height_cb.set_active(2);
-                height_cb_text = "ft";
-            } else {
-                base_height_cb.set_active(0);
-                height_cb_text = "m";
+            var ht = settings.height_type;
+
+            switch (ht) {
+                case 0:
+                    base_height_cb.set_active(0);
+                    height_cb_text = "m";
+                    break;
+                case 1:
+                    base_height_cb.set_active(1);
+                    height_cb_text = "cm";
+                    break;
+                case 2:
+                    base_height_cb.set_active(2);
+                    height_cb_text = "ft";
+                    break;
+                default:
+                    base_height_cb.set_active(0);
+                    height_cb_text = "m";
+                    break;
             }
+
+            base_height_cb.changed.connect (() => {
+                switch (base_height_cb.get_active ()) {
+                    case 0:
+                        settings.height_type = 0;
+                        height_cb_text = "m";
+                        break;
+                    case 1:
+                        settings.height_type = 1;
+                        height_cb_text = "cm";
+                        break;
+                    case 2:
+                        settings.height_type = 2;
+                        height_cb_text = "ft";
+                        break;
+                    default:
+                        settings.height_type = 0;
+                        height_cb_text = "m";
+                        break;
+                }
+            });
 
             var weight_help = new Gtk.Image.from_icon_name ("help-info-symbolic", Gtk.IconSize.BUTTON);
             weight_help.halign = Gtk.Align.START;
@@ -204,7 +255,7 @@ namespace Beemy {
             color_button_action = new Gtk.Button ();
             color_button_action.has_focus = false;
             color_button_action.halign = Gtk.Align.CENTER;
-            color_button_action.margin_top = 6;
+            color_button_action.margin = 12;
             color_button_action.height_request = 48;
             color_button_action.width_request = 48;
             color_button_action.set_image (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR));
@@ -242,25 +293,29 @@ namespace Beemy {
 
             label_result_info = new Gtk.Label ("");
             label_result_info.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
-            label_result_info.set_halign (Gtk.Align.CENTER);
+            label_result_info.halign = Gtk.Align.CENTER;
             label_result_info.hexpand = true;
             label_result_info.margin_bottom = 6;
 
             label_result_grade = new Gtk.Label ("");
             label_result_grade.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
-            label_result_grade.set_halign (Gtk.Align.CENTER);
+            label_result_grade.halign = Gtk.Align.CENTER;
             label_result_grade.hexpand = true;
 
             label_result_grade_number = new Gtk.Label ("");
-            label_result_grade_number.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
-            label_result_grade_number.set_halign (Gtk.Align.CENTER);
+            label_result_grade_number.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
+            label_result_grade_number.halign = Gtk.Align.CENTER;
             label_result_grade_number.hexpand = true;
+            label_result_grade_number.valign = Gtk.Align.CENTER;
 
             body_mass_index_res ();
             body_mass_index_grade ();
 
             var bmi_help = new Gtk.Image.from_icon_name ("help-info-symbolic", Gtk.IconSize.BUTTON);
             bmi_help.halign = Gtk.Align.START;
+            bmi_help.hexpand = true;
+            bmi_help.margin_top = 3;
+            bmi_help.valign = Gtk.Align.CENTER;
             bmi_help.hexpand = true;
             bmi_help.tooltip_text = _("The Body Mass Index does not tell % of muscular mass or fat mass, all it does is a fast checkup on your health.");
 
@@ -350,11 +405,13 @@ namespace Beemy {
 
         public double body_mass_index_res () {
             if (weight_cb_text == "kg" && height_cb_text == "m") {
-                res = weight_entry_text / (height_entry_text * height_entry_text);
-            } else if (weight_cb_text == "lbs" && height_cb_text == "ft") {
+                res = (weight_entry_text / (height_entry_text * height_entry_text));
+            }
+            if (weight_cb_text == "lbs" && height_cb_text == "ft") {
                 res = (weight_entry_text / ((height_entry_text * 12) * (height_entry_text * 12))) * 703;
-            } else if (weight_cb_text == "kg" && height_cb_text == "cm") {
-                res = weight_entry_text / ((height_entry_text / 100) * (height_entry_text / 100));
+            }
+            if (weight_cb_text == "kg" && height_cb_text == "cm") {
+                res = ((weight_entry_text *  0.45) / ((height_entry_text * 0.025) * (height_entry_text * 0.025)));
             }
 
             var number_context = label_result_grade_number.get_style_context ();
@@ -396,7 +453,7 @@ namespace Beemy {
                 grade_type = "Overweight";
             }
 
-            label_result_info.set_markup ("""You are considered <span font="16">%s</span>
+            label_result_info.set_markup ("""You are considered <span font="18">%s</span>
 in the official Body Mass Index chart.""".printf(grade_type));
 
             return grade_type;
