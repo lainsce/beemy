@@ -316,7 +316,7 @@ in the official Body Mass Index chart.""".printf(grade_type));
             color_button_action = new Gtk.Button ();
             color_button_action.has_focus = false;
             color_button_action.halign = Gtk.Align.CENTER;
-            color_button_action.margin_top = 6;
+            color_button_action.margin = 12;
             color_button_action.height_request = 48;
             color_button_action.width_request = 48;
             color_button_action.set_image (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR));
@@ -355,18 +355,18 @@ in the official Body Mass Index chart.""".printf(grade_type));
 
             label_result_info = new Gtk.Label ("");
             label_result_info.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
-            label_result_info.set_halign (Gtk.Align.CENTER);
+            label_result_info.halign = Gtk.Align.CENTER;
             label_result_info.hexpand = true;
             label_result_info.margin_bottom = 6;
 
             label_result_grade = new Gtk.Label ("");
             label_result_grade.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
-            label_result_grade.set_halign (Gtk.Align.CENTER);
+            label_result_grade.halign = Gtk.Align.CENTER;
             label_result_grade.hexpand = true;
 
             label_result_grade_number = new Gtk.Label ("");
-            label_result_grade_number.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
-            label_result_grade_number.set_halign (Gtk.Align.CENTER);
+            label_result_grade_number.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
+            label_result_grade_number.halign = Gtk.Align.CENTER;
             label_result_grade_number.hexpand = true;
         }
 
@@ -375,6 +375,9 @@ in the official Body Mass Index chart.""".printf(grade_type));
         public void create_results_help () {
             bmi_help = new Gtk.Image.from_icon_name ("help-info-symbolic", Gtk.IconSize.BUTTON);
             bmi_help.halign = Gtk.Align.START;
+            bmi_help.hexpand = true;
+            bmi_help.margin_top = 3;
+            bmi_help.valign = Gtk.Align.CENTER;
             bmi_help.hexpand = true;
             bmi_help.tooltip_text = _("The Body Mass Index does not tell % of muscular mass or fat mass, all it does is a fast checkup on your health.");
         }
@@ -425,6 +428,7 @@ in the official Body Mass Index chart.""".printf(grade_type));
                 return false;
             });
         }
+
 
         public void decorate () {
             this.add (stack);
