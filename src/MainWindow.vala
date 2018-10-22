@@ -82,7 +82,6 @@ namespace Beemy {
             create_results_help ();
             attach_results_grid ();
             create_stack ();
-            create_return_button ();
 
             // Finish
             add_buttons_callbacks ();
@@ -187,11 +186,17 @@ in the official Body Mass Index chart.""".printf(grade_type));
             help_button.vexpand = false;
             help_button.tooltip_text = _("Learn about Body Mass Index");
 
+            return_button = new Gtk.Button.with_label ("Calculate");
+            return_button.vexpand = false;
+            return_button.valign = Gtk.Align.CENTER;
+            return_button.get_style_context ().add_class ("back-button");
+
             help_button.clicked.connect (() => {
                 Granite.Services.System.open_uri("https://en.wikipedia.org/wiki/Body_mass_index");
             });
 
             titlebar.pack_end (help_button);
+            titlebar.pack_start (return_button);
         }
 
         private Gtk.Entry entry_height;
@@ -387,6 +392,7 @@ in the official Body Mass Index chart.""".printf(grade_type));
             results_grid.attach (label_result_grade_number, 0, 3, 3, 1);
             results_grid.attach (bmi_help, 2, 3, 3, 1);
         }
+
         public void create_stack () {
             stack = new Gtk.Stack ();
             stack.margin = 6;
@@ -397,13 +403,7 @@ in the official Body Mass Index chart.""".printf(grade_type));
             stack.add (results_grid);
             stack.set_visible_child (home_grid);
         }
-        public void create_return_button () {
-            return_button = new Gtk.Button.with_label ("Calculate");
-            return_button.vexpand = false;
-            return_button.valign = Gtk.Align.CENTER;
-            return_button.get_style_context ().add_class ("back-button");
-            show_return (false);
-        }
+
         public void add_buttons_callbacks () {
             return_button.clicked.connect (() => {
                 stack.set_visible_child (home_grid);
@@ -412,7 +412,6 @@ in the official Body Mass Index chart.""".printf(grade_type));
 
             color_button_action.clicked.connect (() => {
                 stack.set_visible_child (results_grid);
-                titlebar.pack_start (return_button);
                 show_return (true);
                 body_mass_index_res ();
                 body_mass_index_grade ();
