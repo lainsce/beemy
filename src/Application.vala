@@ -34,6 +34,7 @@ namespace Beemy {
 
             app_window = new MainWindow (this);
             app_window.show_all ();
+            app_window.show_return (false);
         }
 
         public static int main (string[] args) {
