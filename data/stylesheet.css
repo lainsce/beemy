@@ -45,12 +45,12 @@
 }
 
 .overweight-label {
-    color: @STRAWBERRY_700;
+    color: @BANANA_700;
     font-weight: 300;
 }
 
 .obese-label {
-    color: @BANANA_700;
+    color: @STRAWBERRY_700;
     font-weight: 300;
 }
 

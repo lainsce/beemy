@@ -127,15 +127,15 @@ namespace Beemy {
                 number_context.remove_class ("obese-label");
                 number_context.remove_class ("overweight-label");
             } else if (24.1 <= res <= 30.0) {
-                number_context.add_class ("obese-label");
-                number_context.remove_class ("underweight-label");
-                number_context.remove_class ("healthy-label");
-                number_context.remove_class ("overweight-label");
-            } else if (res > 30.1) {
                 number_context.add_class ("overweight-label");
+                number_context.remove_class ("underweight-label");
+                number_context.remove_class ("healthy-label");
+                number_context.remove_class ("obese-label");
+            } else if (res > 30.1) {
+                number_context.add_class ("obese-label");
                 number_context.remove_class ("healthy-label");
                 number_context.remove_class ("underweight-label");
-                number_context.remove_class ("obese-label");
+                number_context.remove_class ("overweight-label");
             }
 
             label_result_grade.set_markup ("\nYour Body Mass Index is:\n");
@@ -149,9 +149,9 @@ namespace Beemy {
             } else if (18.8 <= res <= 24.0) {
                 grade_type = "Healthy";
             } else if (24.1 <= res <= 30.0) {
-                grade_type = "Obese";
-            } else if (res > 30.1) {
                 grade_type = "Overweight";
+            } else if (res > 30.1) {
+                grade_type = "Obese";
             }
 
             label_result_info.set_markup ("""You are considered <span font="16">%s</span>
@@ -283,7 +283,6 @@ in the official Body Mass Index chart.""".printf(grade_type));
             base_weight_cb.set_active(settings.weight_type);
             base_height_cb.set_active(settings.height_type);
 
-            // TODO check if working (moved from bottom of constructor, after decorate)
             int x = settings.window_x;
             int y = settings.window_y;
             int weight_type = base_weight_cb.get_active();
