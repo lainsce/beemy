@@ -1,4 +1,10 @@
-com.github.lainsce.beemy (1.0.1) xenial; urgency=low
+com.github.lainsce.beemy (1.0.3) xenial; urgency=low
+
+  * Fix Obese/Overweight mixup.
+
+ -- Lains <lainsce@airmail.cc>  Fri, 16 Nov 2018 11:38:00 -0300
+
+com.github.lainsce.beemy (1.0.2) xenial; urgency=low
 
   * Calculate Button sensitivity if there's data.
   * Use centimeters now if chosen.

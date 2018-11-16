@@ -58,6 +58,14 @@
         <content_attribute id="money-gambling">none</content_attribute>
     </content_rating>
     <releases>
+        <release version="1.0.3" date="2018-11-16">
+            <description>
+                <p>Release: Obese No More</p>
+                <ul>
+                    <li>Fix: Obese/Overweight labels mixup fixed, now follows the BMI chart</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.0.2" date="2018-09-30">
             <description>
                 <p>Release: Be Balanced</p>
