@@ -1,0 +1,159 @@
+# French translations for com.github.lainsce.beemy package.
+# Copyright (C) 2019 THE com.github.lainsce.beemy'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.lainsce.beemy package.
+# NathanBnm, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.lainsce.beemy\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-07 02:57-0300\n"
+"PO-Revision-Date: 2019-01-18 16:55+0100\n"
+"Last-Translator: NathanBnm\n"
+"Language-Team: Français\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/MainWindow.vala:141
+msgid "Your Body Mass Index is:"
+msgstr "Votre indice de masse corporelle est :"
+
+#: src/MainWindow.vala:148
+msgid "Underweight"
+msgstr "Sous-poids"
+
+#: src/MainWindow.vala:150
+msgid "Healthy"
+msgstr "En bonne santé"
+
+#: src/MainWindow.vala:152
+msgid "Overweight"
+msgstr "Surpoids"
+
+#: src/MainWindow.vala:154
+msgid "Obese"
+msgstr "Obèse"
+
+#: src/MainWindow.vala:157
+msgid ""
+"You are considered <span font=\"16\">%s</span> "
+"in the official Body Mass Index chart."
+msgstr ""
+"Vous êtes considéré comme étant <span font=\"16\">%s</span> "
+"dans le tableau officiel de l'indice de masse corporelle."
+
+#: src/MainWindow.vala:187
+msgid "Learn about Body Mass Index"
+msgstr "En savoir plus sur l'indice de massse corporelle"
+
+#: src/MainWindow.vala:189
+msgid "Calculate"
+msgstr "Calculer"
+
+#: src/MainWindow.vala:212
+msgid "Calculate your Body Mass Index:"
+msgstr "Calculez votre indice de massse corporelle"
+
+#: src/MainWindow.vala:225
+msgid "Enter weight…"
+msgstr "Entrez votre poids…"
+
+#: src/MainWindow.vala:252
+msgid "Enter height…"
+msgstr "Entrez votre taille…"
+
+#: src/MainWindow.vala:302
+msgid "You can choose your preferred weight unit."
+msgstr "Vous pouvez choisir votre unité de poids préférée."
+
+#: src/MainWindow.vala:303
+msgid "You can choose your preferred height unit."
+msgstr "Vous pouvez choisir votre unité de taille préférée."
+
+#: src/MainWindow.vala:323
+msgid "Calculate!"
+msgstr "Calculer !"
+
+#: src/MainWindow.vala:349
+msgid "Your Results:"
+msgstr "Vos résultats :"
+
+#: src/MainWindow.vala:381
+msgid "The Body Mass Index does not tell % of muscular mass or fat mass, all it does is a fast checkup on your health."
+msgstr "L'Indice de Masse Corporelle n'indique pas le % de masse musculaire ou de masse graisseuse, il ne fait qu'un bilan rapide de votre santé."
+
+# Application Name
+#: src/MainWindow.vala:206
+#: ../data/com.github.lainsce.beemy.desktop:2
+#: ../data/com.github.lainsce.beemy.appdata.xml:6
+msgid "Beemy"
+msgstr "Beemy"
+
+#: ../data/com.github.lainsce.beemy.desktop:3
+#: ../data/com.github.lainsce.beemy.appdata.xml:7
+msgid "A cute little Body Mass Index calculator"
+msgstr "Un joli petit calculateur d'indice de masse corporelle"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:9
+msgid "A cute little Body Mass Index calculator for health tracking purposes"
+msgstr "Un joli petit calculateur d'indice de masse corporelle pour le suivi de la santé"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:11
+msgid "Quit anytime with the shortcut Ctrl + Q"
+msgstr "Quittez à tout moment avec le raccourci Ctrl + Q"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:12
+msgid "Move the applet by dragging it from anywhere in the window"
+msgstr "Déplacez votre application en la faisant glisser depuis n'importe quel endroit de la fenêtre"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:23
+msgid "Home Page"
+msgstr "Page d'accueil"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:27
+msgid "Results Page"
+msgstr "Page des résultats"
+
+# Releases
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:63
+msgid "Release: Obese No More"
+msgstr "Version : Plus jamais d'obésité"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:65
+msgid "Fix: Obese/Overweight labels mixup fixed, now follows the BMI chart"
+msgstr "Correction : Les problèmes de confusion entre l'obésité et le surpoids sont corrigés et suivent maintenant le tableau de l'IMC."
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:71
+msgid "Release: Be Balanced"
+msgstr "Version : Soyez équilibré"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:73
+msgid "Set the Calculate button's interactivity based if there's data or not"
+msgstr "Définissez l'interactivité du bouton Calculer en fonction de l'existence ou non de données."
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:74
+msgid "Use Centimeters for height!"
+msgstr "Utilisez des centimètres pour la taille !"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:80
+msgid "Release: Keeps The Doc Away!"
+msgstr "Version : Gardez la Doc à l'écart !"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:82
+msgid "Fix calculation on Imperial Units"
+msgstr "Correction du calcul sur les unités impériales"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:83
+msgid "New polished icon"
+msgstr "Nouvelle icône"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:89
+msgid "Release: An Apple a Day..."
+msgstr "Version : Une pomme par jour..."
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:91
+msgid "First release!"
+msgstr "Première version !"
