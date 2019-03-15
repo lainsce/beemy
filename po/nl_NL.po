@@ -1,0 +1,166 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE com.github.lainsce.beemy'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.lainsce.beemy package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.lainsce.beemy\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-14 13:21-0200\n"
+"PO-Revision-Date: 2019-03-14 20:22+0100\n"
+"Language-Team: Dutch <vistausss@outlook.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl_NL\n"
+
+#: src/MainWindow.vala:141
+msgid "Your Body Mass Index is:"
+msgstr "Je BMI is:"
+
+#: src/MainWindow.vala:148
+msgid "Underweight"
+msgstr "Ondergewicht"
+
+#: src/MainWindow.vala:150
+msgid "Healthy"
+msgstr "Gezond gewicht"
+
+#: src/MainWindow.vala:152
+msgid "Overweight"
+msgstr "Overgewicht"
+
+#: src/MainWindow.vala:154
+msgid "Obese"
+msgstr "Obesitas"
+
+#: src/MainWindow.vala:157
+msgid ""
+"You are considered <span font=\"16\">%s</span> in the official Body Mass "
+"Index chart."
+msgstr ""
+"Volgende de officiële BMI-grafiek heb je (een) <span font=\"16\">%s</span>."
+
+#: src/MainWindow.vala:187
+msgid "Learn about Body Mass Index"
+msgstr "Meer informatie over BMI"
+
+#: src/MainWindow.vala:189
+msgid "Calculate"
+msgstr "Berekenen"
+
+#: src/MainWindow.vala:212
+msgid "Calculate your Body Mass Index:"
+msgstr "Bereken je BMI:"
+
+#: src/MainWindow.vala:225
+msgid "Enter weight…"
+msgstr "Voer je gewicht in…"
+
+#: src/MainWindow.vala:252
+msgid "Enter height…"
+msgstr "Voer je lengte in…"
+
+#: src/MainWindow.vala:302
+msgid "You can choose your preferred weight unit."
+msgstr "Je kunt je voorkeurseenheid voor gewicht instellen."
+
+#: src/MainWindow.vala:303
+msgid "You can choose your preferred height unit."
+msgstr "Je kunt je voorkeurseenheid voor lengte instellen."
+
+#: src/MainWindow.vala:323
+msgid "Calculate!"
+msgstr "Berekenen!"
+
+#: src/MainWindow.vala:349
+msgid "Your Results:"
+msgstr "Resultaat:"
+
+#: src/MainWindow.vala:381
+msgid ""
+"The Body Mass Index does not tell % of muscular mass or fat mass, all it "
+"does is a fast checkup on your health."
+msgstr ""
+"BMI zegt niks over het aantal procent spier- en gewichtsmassa; het is niet "
+"meer dan een snelle gezondheidscontrole."
+
+# Application Name
+#: src/MainWindow.vala:206 ../data/com.github.lainsce.beemy.desktop:2
+#: ../data/com.github.lainsce.beemy.appdata.xml:6
+msgid "Beemy"
+msgstr "Beemy"
+
+#: ../data/com.github.lainsce.beemy.desktop:3
+#: ../data/com.github.lainsce.beemy.appdata.xml:7
+msgid "A cute little Body Mass Index calculator"
+msgstr "Een leuke, kleine app waarmee je je BMI kunt berekenen"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:9
+msgid "A cute little Body Mass Index calculator for health tracking purposes"
+msgstr ""
+"Een leuke, kleine app waarmee je je BMI kunt berekenen voor "
+"gezondheidsdoeleinden"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:11
+msgid "Quit anytime with the shortcut Ctrl + Q"
+msgstr "SLuit af met Ctrl + Q"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:12
+msgid "Move the applet by dragging it from anywhere in the window"
+msgstr "Verplaats door het scherm van waar dan ook te verslepen"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:23
+msgid "Home Page"
+msgstr "Startpagina"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:27
+msgid "Results Page"
+msgstr "Resultaten"
+
+# Releases
+#: ../data/com.github.lainsce.beemy.appdata.xml:63
+msgid "Release: Obese No More"
+msgstr "Uitgave: 'Geen obesitas meer'"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:65
+msgid "Fix: Obese/Overweight labels mixup fixed, now follows the BMI chart"
+msgstr ""
+"Probleemoplossing: labels obesitas van overgewicht zijn niet langer "
+"verward en volgen nu de BMI-grafiek"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:71
+msgid "Release: Be Balanced"
+msgstr "Uitgave: 'In balans'"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:73
+msgid "Set the Calculate button's interactivity based if there's data or not"
+msgstr "Stel de interactiviteit van de berekenknop in op basis van gegevens"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:74
+msgid "Use Centimeters for height!"
+msgstr "Gebruik centimeters om je lengte aan te geven!"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:80
+msgid "Release: Keeps The Doc Away!"
+msgstr "Uitgave: 'Geen dokter meer nodig!'"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:82
+msgid "Fix calculation on Imperial Units"
+msgstr "Berekenen van imperiale eenheden werkt nu"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:83
+msgid "New polished icon"
+msgstr "Nieuw, mooier pictogram"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:89
+msgid "Release: An Apple a Day..."
+msgstr "Uitgave: 'Een appeltje per dag...'"
+
+#: ../data/com.github.lainsce.beemy.appdata.xml:91
+msgid "First release!"
+msgstr "Eerste uitgave!"
