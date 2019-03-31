@@ -1,0 +1,96 @@
+# Kikuyu translations for com.github.lainsce.beemy package.
+# Copyright (C) 2019 THE com.github.lainsce.beemy'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.lainsce.beemy package.
+# Automatically generated, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.lainsce.beemy\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-31 19:36+0200\n"
+"PO-Revision-Date: 2019-03-31 17:26+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ki\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/MainWindow.vala:141
+msgid "Your Body Mass Index is:"
+msgstr ""
+
+#: src/MainWindow.vala:148
+msgid "Underweight"
+msgstr ""
+
+#: src/MainWindow.vala:150
+msgid "Healthy"
+msgstr ""
+
+#: src/MainWindow.vala:152
+msgid "Overweight"
+msgstr ""
+
+#: src/MainWindow.vala:154
+msgid "Obese"
+msgstr ""
+
+#: src/MainWindow.vala:157
+msgid "You are considered"
+msgstr ""
+
+#: src/MainWindow.vala:157
+msgid "in the official Body Mass Index chart."
+msgstr ""
+
+#: src/MainWindow.vala:186
+msgid "Learn about Body Mass Index"
+msgstr ""
+
+#: src/MainWindow.vala:188
+msgid "Calculate"
+msgstr ""
+
+#: src/MainWindow.vala:194
+msgid "https://en.wikipedia.org/wiki/Body_mass_index"
+msgstr ""
+
+#: src/MainWindow.vala:205
+msgid "Beemy"
+msgstr ""
+
+#: src/MainWindow.vala:211
+msgid "Calculate your Body Mass Index:"
+msgstr ""
+
+#: src/MainWindow.vala:224
+msgid "Enter weight…"
+msgstr ""
+
+#: src/MainWindow.vala:251
+msgid "Enter height…"
+msgstr ""
+
+#: src/MainWindow.vala:301
+msgid "You can choose your preferred weight unit."
+msgstr ""
+
+#: src/MainWindow.vala:302
+msgid "You can choose your preferred height unit."
+msgstr ""
+
+#: src/MainWindow.vala:322
+msgid "Calculate!"
+msgstr ""
+
+#: src/MainWindow.vala:348
+msgid "Your Results:"
+msgstr ""
+
+#: src/MainWindow.vala:380
+#, c-format
+msgid ""
+"The Body Mass Index does not tell % of muscular mass or fat mass, all it "
+"does is a fast checkup on your health."
+msgstr ""

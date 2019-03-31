@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE com.github.lainsce.beemy'S COPYRIGHT HOLDER
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.lainsce.beemy package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.lainsce.beemy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-14 13:21-0200\n"
+"POT-Creation-Date: 2019-03-31 19:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,121 +38,60 @@ msgid "Obese"
 msgstr ""
 
 #: src/MainWindow.vala:157
-msgid ""
-"You are considered <span font=\"16\">%s</span> "
-"in the official Body Mass Index chart."
+msgid "You are considered"
 msgstr ""
 
-#: src/MainWindow.vala:187
+#: src/MainWindow.vala:157
+msgid "in the official Body Mass Index chart."
+msgstr ""
+
+#: src/MainWindow.vala:186
 msgid "Learn about Body Mass Index"
 msgstr ""
 
-#: src/MainWindow.vala:189
+#: src/MainWindow.vala:188
 msgid "Calculate"
 msgstr ""
 
-#: src/MainWindow.vala:212
-msgid "Calculate your Body Mass Index:"
+#: src/MainWindow.vala:194
+msgid "https://en.wikipedia.org/wiki/Body_mass_index"
 msgstr ""
 
-#: src/MainWindow.vala:225
-msgid "Enter weight…"
-msgstr ""
-
-#: src/MainWindow.vala:252
-msgid "Enter height…"
-msgstr ""
-
-#: src/MainWindow.vala:302
-msgid "You can choose your preferred weight unit."
-msgstr ""
-
-#: src/MainWindow.vala:303
-msgid "You can choose your preferred height unit."
-msgstr ""
-
-#: src/MainWindow.vala:323
-msgid "Calculate!"
-msgstr ""
-
-#: src/MainWindow.vala:349
-msgid "Your Results:"
-msgstr ""
-
-#: src/MainWindow.vala:381
-msgid "The Body Mass Index does not tell % of muscular mass or fat mass, all it does is a fast checkup on your health."
-msgstr ""
-
-# Application Name
-#: src/MainWindow.vala:206
-#: ../data/com.github.lainsce.beemy.desktop:2
-#: ../data/com.github.lainsce.beemy.appdata.xml:6
+#: src/MainWindow.vala:205
 msgid "Beemy"
 msgstr ""
 
-#: ../data/com.github.lainsce.beemy.desktop:3
-#: ../data/com.github.lainsce.beemy.appdata.xml:7
-msgid "A cute little Body Mass Index calculator"
+#: src/MainWindow.vala:211
+msgid "Calculate your Body Mass Index:"
 msgstr ""
 
-#: ../data/com.github.lainsce.beemy.appdata.xml:9
-msgid "A cute little Body Mass Index calculator for health tracking purposes"
+#: src/MainWindow.vala:224
+msgid "Enter weight…"
 msgstr ""
 
-#: ../data/com.github.lainsce.beemy.appdata.xml:11
-msgid "Quit anytime with the shortcut Ctrl + Q"
+#: src/MainWindow.vala:251
+msgid "Enter height…"
 msgstr ""
 
-#: ../data/com.github.lainsce.beemy.appdata.xml:12
-msgid "Move the applet by dragging it from anywhere in the window"
+#: src/MainWindow.vala:301
+msgid "You can choose your preferred weight unit."
 msgstr ""
 
-#: ../data/com.github.lainsce.beemy.appdata.xml:23
-msgid "Home Page"
+#: src/MainWindow.vala:302
+msgid "You can choose your preferred height unit."
 msgstr ""
 
-#: ../data/com.github.lainsce.beemy.appdata.xml:27
-msgid "Results Page"
+#: src/MainWindow.vala:322
+msgid "Calculate!"
 msgstr ""
 
-# Releases
-
-#: ../data/com.github.lainsce.beemy.appdata.xml:63
-msgid "Release: Obese No More"
+#: src/MainWindow.vala:348
+msgid "Your Results:"
 msgstr ""
 
-#: ../data/com.github.lainsce.beemy.appdata.xml:65
-msgid "Fix: Obese/Overweight labels mixup fixed, now follows the BMI chart"
-msgstr ""
-
-#: ../data/com.github.lainsce.beemy.appdata.xml:71
-msgid "Release: Be Balanced"
-msgstr ""
-
-#: ../data/com.github.lainsce.beemy.appdata.xml:73
-msgid "Set the Calculate button's interactivity based if there's data or not"
-msgstr ""
-
-#: ../data/com.github.lainsce.beemy.appdata.xml:74
-msgid "Use Centimeters for height!"
-msgstr ""
-
-#: ../data/com.github.lainsce.beemy.appdata.xml:80
-msgid "Release: Keeps The Doc Away!"
-msgstr ""
-
-#: ../data/com.github.lainsce.beemy.appdata.xml:82
-msgid "Fix calculation on Imperial Units"
-msgstr ""
-
-#: ../data/com.github.lainsce.beemy.appdata.xml:83
-msgid "New polished icon"
-msgstr ""
-
-#: ../data/com.github.lainsce.beemy.appdata.xml:89
-msgid "Release: An Apple a Day..."
-msgstr ""
-
-#: ../data/com.github.lainsce.beemy.appdata.xml:91
-msgid "First release!"
+#: src/MainWindow.vala:380
+#, c-format
+msgid ""
+"The Body Mass Index does not tell % of muscular mass or fat mass, all it "
+"does is a fast checkup on your health."
 msgstr ""

@@ -27,7 +27,7 @@
     box-shadow: 0 3px 3px 0 alpha (@appPrimary, 0.9);
 }
 
-.color-button:insensitive {
+.color-button:disabled {
     box-shadow: 0 3px 3px 0 alpha (shade(@appPrimary, 0.2), 0.3);
 }
 
@@ -36,11 +36,11 @@
     color: #FFF;
 }
 
-.color-button-action:insensitive {
+.color-button-action:disabled {
     background: shade(@appPrimary, 0.88);
 }
 
-.color-button-action image:insensitive {
+.color-button-action image:disabled {
     color: #CCC;
 }
 
