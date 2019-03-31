@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.lainsce.beemy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-31 17:40+0200\n"
+"POT-Creation-Date: 2019-03-31 19:36+0200\n"
 "PO-Revision-Date: 2019-03-31 17:26+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -39,57 +39,58 @@ msgid "Obese"
 msgstr ""
 
 #: src/MainWindow.vala:157
-#, c-format
-msgid ""
-"You are considered <span font=\"16\">%s</span>\n"
-"in the official Body Mass Index chart."
+msgid "You are considered"
 msgstr ""
 
-#: src/MainWindow.vala:187
+#: src/MainWindow.vala:157
+msgid "in the official Body Mass Index chart."
+msgstr ""
+
+#: src/MainWindow.vala:186
 msgid "Learn about Body Mass Index"
 msgstr ""
 
-#: src/MainWindow.vala:189
+#: src/MainWindow.vala:188
 msgid "Calculate"
 msgstr ""
 
-#: src/MainWindow.vala:195
+#: src/MainWindow.vala:194
 msgid "https://en.wikipedia.org/wiki/Body_mass_index"
 msgstr ""
 
-#: src/MainWindow.vala:206
+#: src/MainWindow.vala:205
 msgid "Beemy"
 msgstr ""
 
-#: src/MainWindow.vala:212
+#: src/MainWindow.vala:211
 msgid "Calculate your Body Mass Index:"
 msgstr ""
 
-#: src/MainWindow.vala:225
+#: src/MainWindow.vala:224
 msgid "Enter weight…"
 msgstr ""
 
-#: src/MainWindow.vala:252
+#: src/MainWindow.vala:251
 msgid "Enter height…"
 msgstr ""
 
-#: src/MainWindow.vala:302
+#: src/MainWindow.vala:301
 msgid "You can choose your preferred weight unit."
 msgstr ""
 
-#: src/MainWindow.vala:303
+#: src/MainWindow.vala:302
 msgid "You can choose your preferred height unit."
 msgstr ""
 
-#: src/MainWindow.vala:323
+#: src/MainWindow.vala:322
 msgid "Calculate!"
 msgstr ""
 
-#: src/MainWindow.vala:349
+#: src/MainWindow.vala:348
 msgid "Your Results:"
 msgstr ""
 
-#: src/MainWindow.vala:381
+#: src/MainWindow.vala:380
 #, c-format
 msgid ""
 "The Body Mass Index does not tell % of muscular mass or fat mass, all it "

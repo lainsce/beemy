@@ -154,8 +154,7 @@ namespace Beemy {
                 grade_type = _("Obese");
             }
 
-            label_result_info.set_markup (_("""You are considered <span font="16">%s</span>
-in the official Body Mass Index chart.""").printf(grade_type));
+            label_result_info.set_markup (_("You are considered") + (" <span font=\"16\">%s</span>").printf(grade_type) + "\n" + _("in the official Body Mass Index chart."));
 
             return grade_type;
         }
