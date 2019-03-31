@@ -138,24 +138,24 @@ namespace Beemy {
                 number_context.remove_class ("overweight-label");
             }
 
-            label_result_grade.set_markup ("\nYour Body Mass Index is:\n");
+            label_result_grade.set_markup ("\n" + _("Your Body Mass Index is:")+ "\n");
             label_result_grade_number.set_markup ("%.2f".printf(res));
             return res;
         }
 
         public string body_mass_index_grade () {
             if (res < 18.7) {
-                grade_type = "Underweight";
+                grade_type = _("Underweight");
             } else if (18.8 <= res <= 24.0) {
-                grade_type = "Healthy";
+                grade_type = _("Healthy");
             } else if (24.1 <= res <= 30.0) {
-                grade_type = "Overweight";
+                grade_type = _("Overweight");
             } else if (res > 30.1) {
-                grade_type = "Obese";
+                grade_type = _("Obese");
             }
 
-            label_result_info.set_markup ("""You are considered <span font="16">%s</span>
-in the official Body Mass Index chart.""".printf(grade_type));
+            label_result_info.set_markup (_("""You are considered <span font="16">%s</span>
+in the official Body Mass Index chart.""").printf(grade_type));
 
             return grade_type;
         }
@@ -186,13 +186,13 @@ in the official Body Mass Index chart.""".printf(grade_type));
             help_button.vexpand = false;
             help_button.tooltip_text = _("Learn about Body Mass Index");
 
-            return_button = new Gtk.Button.with_label ("Calculate");
+            return_button = new Gtk.Button.with_label (_("Calculate"));
             return_button.vexpand = false;
             return_button.valign = Gtk.Align.CENTER;
             return_button.get_style_context ().add_class ("back-button");
 
             help_button.clicked.connect (() => {
-                Granite.Services.System.open_uri("https://en.wikipedia.org/wiki/Body_mass_index");
+                Granite.Services.System.open_uri(_("https://en.wikipedia.org/wiki/Body_mass_index"));
             });
 
             titlebar.pack_end (help_button);
@@ -203,13 +203,13 @@ in the official Body Mass Index chart.""".printf(grade_type));
         private Gtk.Entry entry_weight;
 
         public void create_calc_page () {
-            label_beemy = new Gtk.Label ("Beemy");
+            label_beemy = new Gtk.Label (_("Beemy"));
             label_beemy.set_halign (Gtk.Align.CENTER);
             label_beemy.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
             label_beemy.hexpand = true;
             label_beemy.margin_bottom = 6;
 
-            label_beemy_info = new Gtk.Label ("Calculate your Body Mass Index:");
+            label_beemy_info = new Gtk.Label (_("Calculate your Body Mass Index:"));
             label_beemy_info.set_halign (Gtk.Align.CENTER);
             label_beemy_info.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
             label_beemy_info.hexpand = true;
@@ -222,7 +222,7 @@ in the official Body Mass Index chart.""".printf(grade_type));
             entry_weight.has_focus = false;
             entry_weight.margin_top = 5;
             entry_weight.margin_bottom = 5;
-            entry_weight.placeholder_text = "Enter weight…";
+            entry_weight.placeholder_text = _("Enter weight…");
             entry_weight.icon_press.connect ((pos, event) => {
                 if (pos == Gtk.EntryIconPosition.SECONDARY) {
                     entry_weight.set_text ("");
@@ -249,7 +249,7 @@ in the official Body Mass Index chart.""".printf(grade_type));
             entry_height.has_focus = false;
             entry_height.margin_top = 5;
             entry_height.margin_bottom = 5;
-            entry_height.placeholder_text = "Enter height…";
+            entry_height.placeholder_text = _("Enter height…");
 
             entry_height.icon_press.connect ((pos, event) => {
                 if (pos == Gtk.EntryIconPosition.SECONDARY) {
@@ -299,8 +299,8 @@ in the official Body Mass Index chart.""".printf(grade_type));
         private Gtk.Image height_help;
 
         public void create_help () {
-            weight_help = create_help_image("You can choose your preferred weight unit.");
-            height_help = create_help_image("You can choose your preferred height unit.");
+            weight_help = create_help_image(_("You can choose your preferred weight unit."));
+            height_help = create_help_image(_("You can choose your preferred height unit."));
         }
 
         public Gtk.Image create_help_image (string message) {
@@ -346,7 +346,7 @@ in the official Body Mass Index chart.""".printf(grade_type));
         }
 
         public void create_results_labels () {
-            label_result = new Gtk.Label ("Your Results:");
+            label_result = new Gtk.Label (_("Your Results:"));
             label_result.set_halign (Gtk.Align.START);
             label_result.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
             label_result.hexpand = true;
