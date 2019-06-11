@@ -231,10 +231,11 @@ namespace Beemy {
             entry_weight.changed.connect (() => {
                 if (entry_weight.text.length > 0) {
                     entry_weight.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, "edit-clear-symbolic");
-                    sensive_color_button (true);
                 } else {
                     entry_weight.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, null);
                 }
+
+                sensive_color_button (entry_height.text.length > 0 && entry_weight.text.length > 0);
             });
 
             entry_weight_buffer.inserted_text.connect (() => {
@@ -259,10 +260,11 @@ namespace Beemy {
             entry_height.changed.connect (() => {
                 if (entry_height.text.length > 0) {
                     entry_height.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, "edit-clear-symbolic");
-                    sensive_color_button (true);
                 } else {
                     entry_height.set_icon_from_icon_name (Gtk.EntryIconPosition.SECONDARY, null);
                 }
+
+                sensive_color_button (entry_height.text.length > 0 && entry_weight.text.length > 0);
             });
 
             entry_height_buffer.inserted_text.connect (() => {
