@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.lainsce.beemy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-31 19:36+0200\n"
-"PO-Revision-Date: 2019-03-31 17:26+0200\n"
+"PO-Revision-Date: 2019-07-28 17:33+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
 "Language: nl\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: src/MainWindow.vala:141
 msgid "Your Body Mass Index is:"
@@ -39,11 +40,11 @@ msgstr "Obesitas"
 
 #: src/MainWindow.vala:157
 msgid "You are considered"
-msgstr ""
+msgstr "Je hebt"
 
 #: src/MainWindow.vala:157
 msgid "in the official Body Mass Index chart."
-msgstr ""
+msgstr "volgens de officiële Queteletindex."
 
 #: src/MainWindow.vala:186
 msgid "Learn about Body Mass Index"
@@ -76,11 +77,11 @@ msgstr "Voer je lengte in…"
 
 #: src/MainWindow.vala:301
 msgid "You can choose your preferred weight unit."
-msgstr "Je kunt je voorkeurseenheid voor gewicht instellen."
+msgstr "Stel je voorkeurseenheid voor gewicht in."
 
 #: src/MainWindow.vala:302
 msgid "You can choose your preferred height unit."
-msgstr "Je kunt je voorkeurseenheid voor lengte instellen."
+msgstr "Stel je voorkeurseenheid voor lengte in."
 
 #: src/MainWindow.vala:322
 msgid "Calculate!"
@@ -96,5 +97,5 @@ msgid ""
 "The Body Mass Index does not tell % of muscular mass or fat mass, all it "
 "does is a fast checkup on your health."
 msgstr ""
-"BMI zegt niks over het aantal procent spier- en gewichtsmassa; het is niet "
-"meer dan een snelle gezondheidscontrole."
+"Je BMI zegt niks over het aantal procent spier- en gewichtsmassa; het is "
+"niet meer dan een snelle gezondheidscontrole."
