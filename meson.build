@@ -1,6 +1,6 @@
 # Name our project
 project('com.github.lainsce.beemy', ['vala', 'c'],
-    version: '1.0.5'
+    version: '1.0.6'
 )
 
 # Import main lib files
@@ -44,7 +44,6 @@ executable(
     meson.project_name(),
     'src/Application.vala',
     'src/MainWindow.vala',
-    'src/Constants/AppSettings.vala',
     asresources,
     c_args: c_args,
     dependencies: [

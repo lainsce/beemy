@@ -58,6 +58,14 @@
         <content_attribute id="money-gambling">none</content_attribute>
     </content_rating>
     <releases>
+        <release version="1.0.6" date="2020-01-24">
+            <description>
+                <p>Release: Small Gains III</p>
+                <ul>
+                    <li>Small backend fixes</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.0.5" date="2020-01-15">
             <description>
                 <p>Release: Small Gains II</p>

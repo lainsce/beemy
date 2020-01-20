@@ -20,10 +20,15 @@
 namespace Beemy {
     public class Application : Gtk.Application {
         public MainWindow app_window;
+        public static GLib.Settings gsettings;
 
         public Application () {
             Object (flags: ApplicationFlags.FLAGS_NONE,
             application_id: "com.github.lainsce.beemy");
+        }
+
+        static construct {
+            gsettings = new GLib.Settings ("com.github.lainsce.beemy");
         }
 
         protected override void activate () {

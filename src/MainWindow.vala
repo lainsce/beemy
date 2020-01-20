@@ -92,11 +92,10 @@ namespace Beemy {
             int x, y;
             get_position (out x, out y);
 
-            var settings = AppSettings.get_default ();
-            settings.window_x = x;
-            settings.window_y = y;
-            settings.weight_type = base_weight_cb.get_active();
-            settings.height_type = base_height_cb.get_active();
+            Beemy.Application.gsettings.set_int("window-x", x);
+            Beemy.Application.gsettings.set_int("window-y", y);
+            Beemy.Application.gsettings.set_int("weight-type", base_weight_cb.get_active());
+            Beemy.Application.gsettings.set_int("height-type", base_height_cb.get_active());
 
             return false;
         }
@@ -191,7 +190,7 @@ namespace Beemy {
             return_button.get_style_context ().add_class ("back-button");
 
             help_button.clicked.connect (() => {
-                Granite.Services.System.open_uri(_("https://en.wikipedia.org/wiki/Body_mass_index"));
+                GLib.AppInfo.launch_default_for_uri(_("https://en.wikipedia.org/wiki/Body_mass_index"), null);
             });
 
             titlebar.pack_end (help_button);
@@ -275,21 +274,21 @@ namespace Beemy {
         }
 
         public void read_settings () {
-            var settings = AppSettings.get_default ();
-            if (settings.weight_type < 0 || settings.weight_type > 1)
-                settings.weight_type = 0;
-            if (settings.height_type < 0 || settings.height_type > 2)
-                settings.height_type = 0;
 
-            base_weight_cb.set_active(settings.weight_type);
-            base_height_cb.set_active(settings.height_type);
+            if (Beemy.Application.gsettings.get_int ("weight-type") < 0 || Beemy.Application.gsettings.get_int ("weight-type") > 1)
+                Beemy.Application.gsettings.set_int ("weight-type", 0);
+            if (Beemy.Application.gsettings.get_int ("weight-type") < 0 || Beemy.Application.gsettings.get_int ("weight-type") > 2)
+                Beemy.Application.gsettings.set_int ("weight-type", 0);
 
-            int x = settings.window_x;
-            int y = settings.window_y;
+            base_weight_cb.set_active(Beemy.Application.gsettings.get_int ("weight-type"));
+            base_height_cb.set_active(Beemy.Application.gsettings.get_int ("weight-type"));
+
+            int x = Beemy.Application.gsettings.get_int ("window-x");
+            int y = Beemy.Application.gsettings.get_int ("window-y");
             int weight_type = base_weight_cb.get_active();
-            weight_type = settings.weight_type;
+            weight_type = Beemy.Application.gsettings.get_int ("weight-type");
             int height_type = base_height_cb.get_active();
-            height_type = settings.height_type;
+            height_type = Beemy.Application.gsettings.get_int ("weight-type");
 
             if (x != -1 && y != -1) {
                 move (x, y);
