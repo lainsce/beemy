@@ -8,90 +8,93 @@ msgstr ""
 "Project-Id-Version: com.github.lainsce.beemy\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-31 19:36+0200\n"
-"PO-Revision-Date: 2019-03-31 17:26+0200\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-02-09 16:20+0300\n"
+"Last-Translator: Veysel İnanç <vinanc72@gmail.com>\n"
 "Language-Team: none\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: src/MainWindow.vala:141
 msgid "Your Body Mass Index is:"
-msgstr ""
+msgstr "Vücut Kitle İndeksin:"
 
 #: src/MainWindow.vala:148
 msgid "Underweight"
-msgstr ""
+msgstr "Zayıf"
 
 #: src/MainWindow.vala:150
 msgid "Healthy"
-msgstr ""
+msgstr "Normal"
 
 #: src/MainWindow.vala:152
 msgid "Overweight"
-msgstr ""
+msgstr "Fazla Kilolu"
 
 #: src/MainWindow.vala:154
 msgid "Obese"
-msgstr ""
+msgstr "Obez"
 
 #: src/MainWindow.vala:157
 msgid "You are considered"
-msgstr ""
+msgstr "Kabul edilirsin"
 
 #: src/MainWindow.vala:157
 msgid "in the official Body Mass Index chart."
-msgstr ""
+msgstr "resmi Vücut Kitle İndeksi tablosunda."
 
 #: src/MainWindow.vala:186
 msgid "Learn about Body Mass Index"
-msgstr ""
+msgstr "Vücut Kitle İndeksi hakkında bilgi edin"
 
 #: src/MainWindow.vala:188
 msgid "Calculate"
-msgstr ""
+msgstr "Hesapla"
 
 #: src/MainWindow.vala:194
 msgid "https://en.wikipedia.org/wiki/Body_mass_index"
-msgstr ""
+msgstr "https://tr.wikipedia.org/wiki/Vücut_kitle_indeksi"
 
 #: src/MainWindow.vala:205
 msgid "Beemy"
-msgstr ""
+msgstr "Beemy"
 
 #: src/MainWindow.vala:211
 msgid "Calculate your Body Mass Index:"
-msgstr ""
+msgstr "Vücut Kitle İndeksinizi Hesaplayın:"
 
 #: src/MainWindow.vala:224
 msgid "Enter weight…"
-msgstr ""
+msgstr "Kilo girin…"
 
 #: src/MainWindow.vala:251
 msgid "Enter height…"
-msgstr ""
+msgstr "Boy girin…"
 
 #: src/MainWindow.vala:301
 msgid "You can choose your preferred weight unit."
-msgstr ""
+msgstr "Tercih ettiğiniz ağırlık birimini seçebilirsiniz."
 
 #: src/MainWindow.vala:302
 msgid "You can choose your preferred height unit."
-msgstr ""
+msgstr "Tercih ettiğiniz yükseklik birimini seçebilirsiniz."
 
 #: src/MainWindow.vala:322
 msgid "Calculate!"
-msgstr ""
+msgstr "Hesapla!"
 
 #: src/MainWindow.vala:348
 msgid "Your Results:"
-msgstr ""
+msgstr "Sonucun:"
 
 #: src/MainWindow.vala:380
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "The Body Mass Index does not tell % of muscular mass or fat mass, all it "
 "does is a fast checkup on your health."
 msgstr ""
+"Vücut Kitle İndeksi, kas kütlesi veya yağ kütlesinin % 'sini söylemez, "
+"tek yaptığı sağlığınız üzerinde hızlı bir kontroldür."
